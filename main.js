@@ -1,4 +1,5 @@
 let result = 0; //계산기의 값
+let operator = "";
 
 const resultEl = document.querySelector(".result");
 
@@ -18,10 +19,22 @@ function onClickNumber(number) {
     return;
   }
 
-  // 13글자 조건 비교
   if (resultEl.innerHTML === "0") {
     resultEl.innerHTML = number;
   } else {
     resultEl.innerHTML += number;
   }
+}
+
+// + 눌렀을때
+// 현재 입력한 숫자를 저장 (문자 -> 숫자))
+// resultEl.innerHTML = 0
+// '+', '-', '*', '/' 저장
+
+function onClickOperator(inputOperator) {
+  result = +resultEl.innerHTML;
+
+  resultEl.innerHTML = 0;
+
+  operator = "+";
 }
